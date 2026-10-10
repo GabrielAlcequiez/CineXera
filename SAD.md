@@ -22,11 +22,18 @@ Se especificará la descomposición del sistema completo utilizando el modelo C4
 ### 2.1 Diagrama de Contexto, C1
 
 
+![Diagrama C1](./assets/diagram_c1.svg)
+
+
 ### 2.2 Diagrama de Contenedores, C2
+
+
+![Diagrama C2](./assets/diagram_c2.svg)
 
 
 ### 2.3 Diagrama de Componentes, C3
 
+![Diagrama C3](./assets/diagram_c3.svg)
 
 ### 2.4 Diagrama de Código
 
