@@ -35,9 +35,10 @@ Se especificará la descomposición del sistema completo utilizando el modelo C4
 
 ![Diagrama C3](./assets/diagram_c3.svg)
 
-### 2.4 Diagrama de Código
+### 2.4 Diagrama de Código, C4
 
----
+![Diagrama C4](./assets/diagram_c4.svg)
+
 
 ## 3. Base de Datos
 
@@ -45,10 +46,8 @@ Se especificará la descomposición del sistema completo utilizando el modelo C4
 
 ### 3.2 Diagrama Modelo Relacional
 
----
 
-## 4. Decisiones Aruitectónicas
+## 4. Decisiones Arquitectónicas
 
----
 
 ## 5. Riesgos Técnicos y Mitigaciones

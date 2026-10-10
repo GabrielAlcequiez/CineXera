@@ -1,0 +1,161 @@
+@startuml
+
+allowmixing
+
+' ==============================
+' ESTILO GENERAL
+' ==============================
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam linetype ortho
+skinparam roundcorner 12
+skinparam dpi 160
+
+skinparam defaultFontName "Arial"
+skinparam defaultFontColor #263238
+skinparam defaultFontSize 12
+
+skinparam ArrowColor #64748B
+skinparam ArrowThickness 1
+skinparam ArrowFontColor #475569
+skinparam ArrowFontSize 10
+
+skinparam packageStyle rectangle
+skinparam packageBackgroundColor #FFFFFF
+skinparam packageBorderColor #CBD5E1
+skinparam packageFontColor #334155
+skinparam packageFontSize 13
+skinparam packageFontStyle bold
+
+skinparam classBackgroundColor #F8FAFC
+skinparam classBorderColor #CBD5E1
+skinparam classFontColor #1E293B
+skinparam classAttributeFontColor #475569
+skinparam classFontSize 11
+
+skinparam stereotypeFontColor #64748B
+skinparam stereotypeFontSize 10
+
+skinparam class {
+    BackgroundColor<<Controller>> #E0F2FE
+    BorderColor<<Controller>> #7DD3FC
+
+    BackgroundColor<<ViewModel>> #F1F5F9
+    BorderColor<<ViewModel>> #CBD5E1
+
+    BackgroundColor<<Service>> #EDE9FE
+    BorderColor<<Service>> #C4B5FD
+
+    BackgroundColor<<DTO>> #F5F3FF
+    BorderColor<<DTO>> #DDD6FE
+
+    BackgroundColor<<Entity>> #ECFDF5
+    BorderColor<<Entity>> #A7F3D0
+
+    BackgroundColor<<Repository>> #FEF3C7
+    BorderColor<<Repository>> #FCD34D
+
+    BackgroundColor<<EF Core>> #FEF9C3
+    BorderColor<<EF Core>> #FDE047
+}
+
+top to bottom direction
+
+' ==============================
+' FRONTEND
+' ==============================
+package "Frontend - React / TypeScript" {
+
+    class ReservationViewModel <<ViewModel>> {
+        +showtimeId: Guid
+        +seatId: Guid
+    }
+}
+
+' ==============================
+' PRESENTATION
+' ==============================
+package "Presentation - ASP.NET Core API" {
+
+    class ReservationsController <<Controller>> {
+        +CreateReservation(model: ReservationViewModel)
+    }
+}
+
+' ==============================
+' APPLICATION
+' ==============================
+package "Application - Casos de Uso" {
+
+    interface IReservationService {
+        +CreateReservation(dto: ReservationDTO)
+    }
+
+    class ReservationService <<Service>> {
+        +CreateReservation(dto: ReservationDTO)
+    }
+
+    class ReservationDTO <<DTO>> {
+        +showtimeId: Guid
+        +seatId: Guid
+        +userId: Guid
+    }
+}
+
+' ==============================
+' DOMAIN
+' ==============================
+package "Domain - Entidades y Contratos" {
+
+    interface IReservationRepository {
+        +Add(reservation: Reservation)
+        +GetById(id: Guid)
+    }
+
+    class Reservation <<Entity>> {
+        +Id: Guid
+        +UserId: Guid
+        +ShowtimeId: Guid
+        +SeatId: Guid
+        +Status: ReservationStatus
+    }
+}
+
+' ==============================
+' INFRASTRUCTURE
+' ==============================
+package "Infrastructure - Persistencia" {
+
+    class ReservationRepository <<Repository>> {
+        +Add(reservation: Reservation)
+        +GetById(id: Guid)
+    }
+
+    class CineXeraDbContext <<EF Core>> {
+        +Reservations: DbSet<Reservation>
+    }
+
+    database "SQL Server" as DB #E0F2FE
+}
+
+' ==============================
+' RELACIONES
+' ==============================
+
+ReservationViewModel --> ReservationsController : HTTP POST /api/reservations
+
+ReservationsController ..> ReservationViewModel : recibe
+ReservationsController ..> ReservationDTO : transforma a
+ReservationsController --> IReservationService : invoca
+
+ReservationService ..|> IReservationService : implementa
+ReservationService ..> ReservationDTO : consume
+ReservationService --> IReservationRepository : utiliza
+ReservationService ..> Reservation : crea / valida
+
+ReservationRepository ..|> IReservationRepository : implementa
+ReservationRepository --> CineXeraDbContext : utiliza
+ReservationRepository ..> Reservation : persiste
+
+CineXeraDbContext --> DB : EF Core
+@enduml
