@@ -44,7 +44,11 @@ Se especificará la descomposición del sistema completo utilizando el modelo C4
 
 ### 3.1 Diagrama Entidad Relación - Chen
 
+![Diagrama Entidad Relación](./assets/erd_diagram.svg)
+
 ### 3.2 Diagrama Modelo Relacional
+
+![Diagrama Modelo Relacional](./assets/diagram_relacional.svg)
 
 
 ## 4. Decisiones Arquitectónicas
