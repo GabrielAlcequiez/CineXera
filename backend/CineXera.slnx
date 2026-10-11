@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="CineXera.Api/CineXera.Api.csproj" />
+  <Project Path="CineXera.Application/CineXera.Application.csproj" />
+  <Project Path="CineXera.Domain/CineXera.Domain.csproj" />
+  <Project Path="CineXera.Infrastructure/CineXera.Infrastructure.csproj" />
+</Solution>
