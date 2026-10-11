@@ -83,7 +83,7 @@ El sistema estará compuesto por lo siguiente:
 La principal característica del producto es la implementación de un sistema robusto a la hora de las reservas
 evitando que dos clientes reserven el mismo asiento a la vez, contando con un sistema de historial que si el cliente
 desea cambiar su asiento, podrá hacerlo dejando su anterior asiento bloqueado por 5 minutos por si desea volver a 
-tomarlo, evitando asi equivocaciones e inconvenientes, permitiendo una sola modificación por reserva.
+tomarlo, evitando asi equivocaciones e inconvenientes.
 
 ### 2.3 Usuarios 
 
