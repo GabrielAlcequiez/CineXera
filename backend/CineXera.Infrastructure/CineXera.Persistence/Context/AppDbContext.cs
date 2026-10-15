@@ -1,6 +1,5 @@
 using CineXera.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 
 namespace CineXera.Persistence.Context;
 
