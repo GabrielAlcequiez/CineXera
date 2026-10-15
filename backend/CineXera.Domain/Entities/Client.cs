@@ -1,8 +1,7 @@
 namespace CineXera.Domain.Entities;
 
-public class Client
+public class Client : BaseEntity<Guid>
 {
-    public Guid Id { get;  set; }
     public string Name { get;  set; } = string.Empty;
     public string Email { get;  set; } =  string.Empty;
     public string PasswordHash { get;  set; } = string.Empty;

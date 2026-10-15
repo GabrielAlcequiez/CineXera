@@ -1,8 +1,7 @@
 namespace CineXera.Domain.Entities;
 
-public class Seat
+public class Seat : BaseEntity<Guid>
 {
-    public Guid Id { get; set; }
     public string Row { get; set; } = string.Empty;
     public string Number { get; set; } = string.Empty;
     

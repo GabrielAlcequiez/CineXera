@@ -13,6 +13,12 @@ namespace CineXera.Persistence.Configurations
 
             builder.Property(x => x.Id)
                 .ValueGeneratedNever();
+
+            builder.Property(x => x.CreatedAt)
+                .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.Property(x => x.IsActive)
+                .HasDefaultValue(true);
             builder.HasIndex(x => new
             {
                 x.AuditoriumId,

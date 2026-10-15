@@ -10,6 +10,12 @@ namespace CineXera.Persistence.Configurations
         {
             builder.ToTable("Categories");
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.CreatedAt)
+                .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.Property(x => x.IsActive)
+                .HasDefaultValue(true);
             builder.Property(x => x.Name)
                 .ValueGeneratedNever();
 

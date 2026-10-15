@@ -1,8 +1,7 @@
 namespace CineXera.Domain.Entities;
 
-public class Screening
+public class Screening : BaseEntity<Guid>
 {
-    public Guid Id { get; set; }
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
     

@@ -12,6 +12,12 @@ namespace CineXera.Persistence.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedNever();
 
+            builder.Property(x => x.CreatedAt)
+                .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.Property(x => x.IsActive)
+                .HasDefaultValue(true);
+
             builder.Property(x=>x.Name)
                 .HasMaxLength(100)
                 .IsRequired();

@@ -1,8 +1,7 @@
 namespace CineXera.Domain.Entities;
 
-public class Auditorium
+public class Auditorium : BaseEntity<Guid>
 {
-    public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
     
     // Navigation Properties

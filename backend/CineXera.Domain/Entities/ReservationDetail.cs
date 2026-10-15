@@ -2,9 +2,8 @@ using CineXera.Domain.Common;
 
 namespace CineXera.Domain.Entities;
 
-public class ReservationDetail
+public class ReservationDetail : BaseEntity<Guid>
 {
-    public Guid Id { get; set; }
     public SeatStatus Status { get; set; }
     public DateTimeOffset? BlockedUntil { get; set; }
     

@@ -2,10 +2,8 @@ using CineXera.Domain.Common;
 
 namespace CineXera.Domain.Entities;
 
-public class Reservation
+public class Reservation : BaseEntity<Guid>
 {
-    public Guid Id { get; set; }
-    public DateTime CreatedAt { get; set; }
     public ReservationStatus Status { get; set; }
     
     // Foreing Keys
