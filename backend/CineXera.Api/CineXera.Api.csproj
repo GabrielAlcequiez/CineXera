@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CineXera.Application\CineXera.Application.csproj" />
     <ProjectReference Include="..\CineXera.Infrastructure\CineXera.Persistence\CineXera.Persistence.csproj" />
   </ItemGroup>
 
