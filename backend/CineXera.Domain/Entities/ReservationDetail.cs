@@ -5,8 +5,8 @@ namespace CineXera.Domain.Entities;
 public class ReservationDetail
 {
     public Guid Id { get; set; }
-    public SeatStatus SeatStatus { get; set; }
-    public DateTime BlockedUntil { get; set; }
+    public SeatStatus Status { get; set; }
+    public DateTimeOffset? BlockedUntil { get; set; }
     
     // Foreign Keys
     public Guid ReservationId { get; set; }
