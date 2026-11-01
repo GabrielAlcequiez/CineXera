@@ -53,5 +53,6 @@ Se especificará la descomposición del sistema completo utilizando el modelo C4
 
 ## 4. Decisiones Arquitectónicas
 
+.
 
 ## 5. Riesgos Técnicos y Mitigaciones
